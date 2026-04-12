@@ -3,21 +3,22 @@ import { Card } from '../ui/Card';
 import { motion } from 'framer-motion';
 import { Linkedin, Twitter, Github } from 'lucide-react';
 import frontendEngineer from '@/assets/1000220974.jpg';
-import backEngineer from '@/assets/IMG-20230529-WA0002.jpg';
-import productDesigner from '@/assets/1000220974.jpg';
+import cto from '@/assets/IMG-20220429-WA0014.jpg';
+import designEngineer from '@/assets/IMG-20260413-WA0006.jpg';
 import analyst from '@/assets/IMG_5544.jpeg';
 
+
 const team = [
-  // {
-  //   name: 'Toluwalope Owolabi',
-  //   role: 'Backend Engineer',
-  //   image: backEngineer,
-  //   socials: {
-  //     linkedin: 'https://www.linkedin.com/in/toluwalope-owolabi-2b2b2b2b2b2b/',
-  //     x: 'https://twitter.com/ToluwalopeOwolabi',
-  //     github: 'https://github.com/ToluwalopeOwolabi',
-  //   }    
-  // },
+  {
+    name: 'Mololuwa Ajibade',
+    role: 'Chief Technology Officer',
+    image: cto,
+    socials: {
+      linkedin: 'https://www.linkedin.com/in/mololuwa-ajibade',
+      x: 'https://twitter.com/AjibadeMololuwa',
+      github: 'https://github.com/dreamephraim',
+    }    
+  },
   {
     name: 'Gbenga Bayode',
     role: 'Frontend Engineer',
@@ -30,8 +31,8 @@ const team = [
   },
   {
     name: 'Olawale Balogun',
-    role: 'Product Designer',
-    image: productDesigner,
+    role: 'Design Engineer',
+    image: designEngineer,
     socials: {
       linkedin: 'https://www.linkedin.com/in/walebuilds',
       x: 'https://twitter.com/walebuilds_',
@@ -77,7 +78,7 @@ export function TeamSection() {
               visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
             }}>
               <Card hoverEffect className="bg-background/60 border-white/5 p-0 overflow-hidden group">
-                <div className="aspect-square overflow-hidden relative">
+                <div className="aspect-square  overflow-hidden relative">
                   <div className="absolute inset-0 bg-primary-500/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <img
                     loading="lazy"
@@ -88,7 +89,7 @@ export function TeamSection() {
                 </div>
                 <div className="p-6 text-center">
                   <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
-                  <p className="text-sm text-primary-400 font-medium mb-4">{member.role}</p>
+                  <p className="text-sm text-[#005ff0] font-medium mb-4">{member.role}</p>
                   <div className="flex items-center justify-center gap-4 text-zinc-500">
                     <a href={member.socials?.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin className="w-4 h-4" /></a>
                     <a href={member.socials?.x} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Twitter className="w-4 h-4" /></a>

@@ -25,7 +25,7 @@ export function Footer() {
             </p>
           </div>
           
-          <div>
+          {/* <div>
             <h4 className="text-foreground font-medium mb-4">Platform</h4>
             <ul className="space-y-3 text-sm text-foreground/55">
               <li><Link to="/features" className="hover:text-foreground transition-colors">Result Processing</Link></li>
@@ -33,14 +33,14 @@ export function Footer() {
               <li><Link to="/features" className="hover:text-foreground transition-colors">Transcript Requests</Link></li>
               <li><Link to="/features" className="hover:text-foreground transition-colors">Clearance Automation</Link></li>
             </ul>
-          </div>
+          </div> */}
           
           <div>
             <h4 className="text-foreground font-medium mb-4">Company</h4>
             <ul className="space-y-3 text-sm text-foreground/55">
               <li><Link to="/team" className="hover:text-foreground transition-colors">About Us</Link></li>
               <li><Link to="/team" className="hover:text-foreground transition-colors">Team</Link></li>
-              <li><Link to="/contact" className="hover:text-foreground transition-colors">Careers</Link></li>
+              <li><Link to="/careers" className="hover:text-foreground transition-colors">Careers</Link></li>
               <li><Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -50,7 +50,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-foreground/55">
               <li><Link to="/legal" className="hover:text-foreground transition-colors">Privacy Policy</Link></li>
               <li><Link to="/legal" className="hover:text-foreground transition-colors">Terms of Service</Link></li>
-              <li><Link to="/legal" className="hover:text-foreground transition-colors">Cookie Policy</Link></li>
+              {/* <li><Link to="/legal" className="hover:text-foreground transition-colors">Cookie Policy</Link></li> */}
               <li><Link to="/security" className="hover:text-foreground transition-colors">Security</Link></li>
             </ul>
           </div>

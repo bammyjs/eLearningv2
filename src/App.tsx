@@ -9,6 +9,7 @@ const Team = lazy(() => import('./pages/Team'));
 const Security = lazy(() => import('./pages/Security'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Legal = lazy(() => import('./pages/Legal'));
+const Careers = lazy(() => import('./pages/Careers'));
 
 function RouteFallback() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Route path="/team" element={<Team />} />
               <Route path="/security" element={<Security />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/careers" element={<Careers />} />
               <Route path="/legal" element={<Legal />} />
             </Routes>
           </Suspense>

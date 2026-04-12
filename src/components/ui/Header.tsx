@@ -1,11 +1,14 @@
+import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useEffect, useState } from 'react';
 import { cn } from '../ui/Button';
 import { Link, useLocation } from 'react-router-dom';
 import elearningLogo from '@/assets/elearningLogo.png';
+import elearningLogo2 from '@/assets/logo.png';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -13,6 +16,10 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -27,8 +34,11 @@ export function Header() {
       scrolled ? 'bg-background/85 backdrop-blur-xl border-white/10 shadow-xl' : 'bg-transparent border-transparent'
     )}>
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link to="/" className="hidden sm:flex items-center gap-2 group">
           <img src={elearningLogo} alt="eLearning" className="h-10 w-full" />
+        </Link>
+        <Link to="/" className="flex sm:hidden items-center gap-2 group">
+          <img src={elearningLogo2} alt="eLearning" className="h-10 w-full" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
@@ -46,10 +56,50 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
-          <Link to="/contact">
+        <div className="flex items-center gap-3">
+          <Link to="/contact" className="hidden md:inline-flex">
             <Button size="sm" className="hover:scale-105 transition-transform">Request Demo</Button>
           </Link>
+          <button
+            type="button"
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileMenuOpen}
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-foreground/10 bg-surface/80 text-foreground transition-colors hover:bg-surface-light"
+          >
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+
+      <div
+        className={cn(
+          'md:hidden overflow-hidden transition-all duration-300',
+          mobileMenuOpen ? 'max-h-[420px] opacity-100' : 'max-h-0 opacity-0'
+        )}
+      >
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 pb-4">
+          <div className="rounded-2xl border border-foreground/10 bg-background/95 backdrop-blur-xl shadow-xl p-4">
+            <nav className="flex flex-col gap-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={cn(
+                    'rounded-xl px-4 py-3 text-sm font-medium transition-colors',
+                    location.pathname === link.path
+                      ? 'bg-primary-500/15 text-foreground'
+                      : 'text-foreground/70 hover:bg-foreground/5 hover:text-foreground'
+                  )}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Link to="/contact" className="pt-2">
+                <Button size="sm" className="w-full justify-center">Request Demo</Button>
+              </Link>
+            </nav>
+          </div>
         </div>
       </div>
     </header>

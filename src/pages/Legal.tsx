@@ -35,13 +35,13 @@ export default function Legal() {
               </p>
             </section>
 
-            <section className="space-y-4">
+            {/* <section className="space-y-4">
               <h2 className="text-2xl font-bold text-white">Cookie Policy</h2>
               <p className="leading-relaxed">
                 We use strictly necessary cookies to keep you logged in and secure your session. 
                 We do not use tracking or advertising cookies on the core Result Processing System platform.
               </p>
-            </section>
+            </section> */}
           </div>
         </Reveal>
       </Container>

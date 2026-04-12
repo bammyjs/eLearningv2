@@ -1,6 +1,7 @@
 import { Container, Section, Reveal } from '../ui/Layout';
 import { Button } from '../ui/Button';
 import { ArrowRight, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function CTA() {
   return (
@@ -22,14 +23,18 @@ export function CTA() {
         </Reveal>
 
         <Reveal delay={0.4} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link to="/contact">
           <Button size="lg" className="w-full sm:w-auto group">
             Book a Demo
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
-          <Button size="lg" variant="secondary" className="w-full sm:w-auto">
+          </Link>
+          <Link to="/contact">
+          <Button  size="lg" variant="secondary" className="w-full sm:w-auto">
             <Mail className="mr-2 h-5 w-5 text-primary-300" />
             Contact Sales
           </Button>
+          </Link>
         </Reveal>
       </Container>
     </Section>
