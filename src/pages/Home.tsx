@@ -25,7 +25,7 @@ export default function Home() {
       <SecurityPerformance />
       <TeamSection />
       <Benefits />
-      <Timeline />
+      {/* <Timeline /> */}
       <CTA />
     </main>
   );

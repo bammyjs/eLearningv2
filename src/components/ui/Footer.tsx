@@ -1,8 +1,17 @@
-import {Github, Twitter, Linkedin } from 'lucide-react';
+import {Github, Twitter, Linkedin, Instagram } from 'lucide-react';
 import elearningLogo from '@/assets/elearningLogo2.png';
 import { Link } from 'react-router-dom';
 
 export function Footer() {
+
+  const socials = [
+    {
+      linkedin: 'https://www.linkedin.com/elearning_ng',
+      x: 'https://twitter.com/elearning_ng',
+      instagram: 'https://www.instagram.com/elearning_ng/',
+      tiktok: 'https://www.tiktok.com/@elearning_ng',
+    },
+  ];
   return (
     <footer className="bg-surface border-t border-white/10 py-12 md:py-16">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -52,9 +61,10 @@ export function Footer() {
             © {new Date().getFullYear()} eLearning Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-foreground/55">
-            <a href="#" className="hover:text-foreground hover:scale-110 transition-transform"><Twitter className="h-5 w-5" /></a>
-            <a href="#" className="hover:text-foreground hover:scale-110 transition-transform"><Linkedin className="h-5 w-5" /></a>
-            <a href="#" className="hover:text-foreground hover:scale-110 transition-transform"><Github className="h-5 w-5" /></a>
+            <a href={socials[0].x} className="hover:text-foreground hover:scale-110 transition-transform"><Twitter className="h-5 w-5" /></a>
+            <a href={socials[0].linkedin} className="hover:text-foreground hover:scale-110 transition-transform"><Linkedin className="h-5 w-5" /></a>
+            <a href={socials[0].instagram} className="hover:text-foreground hover:scale-110 transition-transform"><Instagram className="h-5 w-5" /></a>
+            {/* <a href={socials[0].tiktok} className="hover:text-foreground hover:scale-110 transition-transform"><Tiktok className="h-5 w-5" /></a> */}
           </div>
         </div>
       </div>

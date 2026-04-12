@@ -58,7 +58,7 @@ export default function Contact() {
                 <div>
                   <h3 className="text-xl font-heading font-bold text-foreground mb-2">Email Us</h3>
                   <p className="text-foreground/70 mb-1">Our friendly team is here to help.</p>
-                  <a href="mailto:hello@elearning.com" className="text-primary-300 hover:text-accent-300 transition-colors">hello@elearning.com</a>
+                  <a href="mailto:hello@elearning.ng" className="text-primary-300 hover:text-accent-300 transition-colors">hello@elearning.ng</a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -68,7 +68,7 @@ export default function Contact() {
                 <div>
                   <h3 className="text-xl font-heading font-bold text-foreground mb-2">Our HQ</h3>
                   <p className="text-foreground/70 mb-1">Come say hello at our office HQ.</p>
-                  <span className="text-foreground/80">100 Tech Hub Avenue<br/>Innovation City, CA 94043</span>
+                  <span className="text-foreground/80">4, Morenikeji Street<br/>Ogba,Ikeja, Lagos, Nigeria.</span>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -78,7 +78,7 @@ export default function Contact() {
                 <div>
                   <h3 className="text-xl font-heading font-bold text-foreground mb-2">Phone</h3>
                   <p className="text-foreground/70 mb-1">Mon-Fri from 8am to 5pm.</p>
-                  <a href="tel:+15550000000" className="text-primary-300 hover:text-accent-300 transition-colors">+1 (555) 000-0000</a>
+                  <a href="tel:+2347043669754" className="text-primary-300 hover:text-accent-300 transition-colors">+2347043669754</a>
                 </div>
               </div>
             </Reveal>
