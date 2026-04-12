@@ -8,16 +8,16 @@ import productDesigner from '@/assets/1000220974.jpg';
 import analyst from '@/assets/IMG_5544.jpeg';
 
 const team = [
-  {
-    name: 'Toluwalope Owolabi',
-    role: 'Backend Engineer',
-    image: backEngineer,
-    socials: {
-      linkedin: 'https://www.linkedin.com/in/toluwalope-owolabi-2b2b2b2b2b2b/',
-      x: 'https://twitter.com/ToluwalopeOwolabi',
-      github: 'https://github.com/ToluwalopeOwolabi',
-    }    
-  },
+  // {
+  //   name: 'Toluwalope Owolabi',
+  //   role: 'Backend Engineer',
+  //   image: backEngineer,
+  //   socials: {
+  //     linkedin: 'https://www.linkedin.com/in/toluwalope-owolabi-2b2b2b2b2b2b/',
+  //     x: 'https://twitter.com/ToluwalopeOwolabi',
+  //     github: 'https://github.com/ToluwalopeOwolabi',
+  //   }    
+  // },
   {
     name: 'Gbenga Bayode',
     role: 'Frontend Engineer',
