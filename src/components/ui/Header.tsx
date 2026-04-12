@@ -38,7 +38,7 @@ export function Header() {
               to={link.path} 
               className={cn(
                 'transition-colors hover:text-foreground',
-                location.pathname === link.path ? 'text-foreground font-semibold' : 'text-foreground/65'
+                location.pathname === link.path ? 'text-foreground font-bold' : 'text-foreground/65'
               )}
             >
               {link.name}
