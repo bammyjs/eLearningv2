@@ -6,7 +6,7 @@ export function Footer() {
 
   const socials = [
     {
-      linkedin: 'https://www.linkedin.com/elearning_ng',
+      linkedin: 'https://www.linkedin.com/company/elearningng',
       x: 'https://twitter.com/elearning_ng',
       instagram: 'https://www.instagram.com/elearning_ng/',
       tiktok: 'https://www.tiktok.com/@elearning_ng',
