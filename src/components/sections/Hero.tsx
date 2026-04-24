@@ -9,25 +9,25 @@ import DarkVeil from '../ui/DarkVeil';
 
 const heroSlides = [
   {
-    eyebrow: 'Modernizing Academic Workflows',
-    title: 'Academic Result Processing for',
-    highlight: 'Modern Universities',
+    eyebrow: 'Digital Infrastructure for Modern Institutions',
+    title: 'A Unified Academic Platform for',
+    highlight: 'University Operations',
     description:
-      'eLearning automates course registration, result processing, transcripts, clearance, and approval workflows in one secure platform.',
+      'eLearning helps universities manage portal access, result workflows, and examination operations through one secure and scalable platform.',
   },
   {
-    eyebrow: 'Operational Efficiency for Campus Teams',
-    title: 'Registration and Clearance Built for',
-    highlight: 'Campus Operations',
+    eyebrow: 'Student and Staff Self-Service',
+    title: 'Portal Experiences Built for',
+    highlight: 'Daily Campus Life',
     description:
-      'Streamline student onboarding, academic validation, departmental sign-offs, and graduation clearance with fewer manual bottlenecks.',
+      'Create a more connected institutional experience with structured registration flows, request visibility, and role-based dashboards for every stakeholder.',
   },
   {
-    eyebrow: 'Trusted Student Service Delivery',
-    title: 'Secure Transcript Requests and Approvals at',
+    eyebrow: 'Academic Control and Compliance',
+    title: 'Result and Examination Workflows at',
     highlight: 'Institutional Scale',
     description:
-      'Deliver faster transcript fulfillment, transparent approval routing, and audit-ready record management for students, staff, and senate teams.',
+      'Reduce delays, improve process integrity, and keep records audit-ready across departments, faculties, registry teams, and academic leadership.',
   },
 ];
 
@@ -126,10 +126,10 @@ export function Hero() {
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
-          <Link to="/features" className="w-full sm:w-auto">
+          <Link to="/services" className="w-full sm:w-auto">
             <Button size="lg" variant="secondary" className="w-full">
               <PlayCircle className="mr-2 h-5 w-5 text-primary-300" />
-              View Features
+              Explore Services
             </Button>
           </Link>
         </Reveal>

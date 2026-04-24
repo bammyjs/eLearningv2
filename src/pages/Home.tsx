@@ -1,12 +1,9 @@
 import { Hero } from '../components/sections/Hero';
 import { ProblemSolution } from '../components/sections/ProblemSolution';
-import { UserRoles } from '../components/sections/UserRoles';
-import { KeyFeatures } from '../components/sections/KeyFeatures';
-import { RoleFeatures } from '../components/sections/RoleFeatures';
 import { SecurityPerformance } from '../components/sections/SecurityPerformance';
 import { TeamSection } from '../components/sections/TeamSection';
 import { Benefits } from '../components/sections/Benefits';
-import { Timeline } from '../components/sections/Timeline';
+import { ServiceOverview } from '../components/sections/ServiceOverview';
 import { CTA } from '../components/sections/CTA';
 import { useEffect } from 'react';
 
@@ -19,13 +16,10 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <ProblemSolution />
-      <UserRoles />
-      <KeyFeatures />
-      {/* <RoleFeatures /> */}
+      <ServiceOverview />
       <SecurityPerformance />
-      <TeamSection />
       <Benefits />
-      {/* <Timeline /> */}
+      <TeamSection />
       <CTA />
     </main>
   );

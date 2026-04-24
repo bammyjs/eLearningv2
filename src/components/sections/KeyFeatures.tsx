@@ -1,22 +1,8 @@
 import { Container, Section, Reveal, staggerContainer } from '../ui/Layout';
 import { Card } from '../ui/Card';
-import { FileText, Calculator, FileCheck, Users, UploadCloud, ScrollText, BadgeCheck, FileArchive, Shield, Bell, LayoutDashboard, Smartphone } from 'lucide-react';
+import { LayoutDashboard } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-const features = [
-  { icon: FileText, title: 'Course registration with validation', desc: 'Prevent invalid enrollments with real-time prerequisite checks.' },
-  { icon: UploadCloud, title: 'Result upload and correction', desc: 'Seamless Excel import with instant error detection.' },
-  { icon: Calculator, title: 'GPA / CGPA calculations', desc: 'Automated, error-free academic scoring system.' },
-  { icon: FileCheck, title: 'Automated approval workflow', desc: 'Route results directly from Lecturer to Senate.' },
-  { icon: ScrollText, title: 'Broadsheet generation', desc: 'Generate comprehensive academic broadsheets instantly.' },
-  { icon: BadgeCheck, title: 'Clearance automation', desc: 'Streamlined online clearance processes for graduates.' },
-  { icon: FileArchive, title: 'Transcript request and verification', desc: 'Secure, traceable transcript generation system.' },
-  { icon: Shield, title: 'Audit trail and compliance', desc: 'Track every action, change, and approval securely.' },
-  { icon: Users, title: 'Role-based dashboards', desc: 'Tailored views for students, staff, and management.' },
-  { icon: Bell, title: 'Real-time notifications', desc: 'Instant alerts for corrections, approvals, and deadlines.' },
-  { icon: LayoutDashboard, title: 'Secure authentication', desc: 'WebAuthn, TOTP, and 2FA integrated by default.' },
-  { icon: Smartphone, title: 'Mobile-responsive interface', desc: 'Access the system on desktop, tablet, or smartphone.' }
-];
+import { sharedPlatformCapabilities } from '../../data/services';
 
 export function KeyFeatures() {
   return (
@@ -26,13 +12,13 @@ export function KeyFeatures() {
         <Reveal className="text-center max-w-3xl mx-auto mb-20">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent-300/10 border border-foreground/10 text-accent-300 text-sm font-medium mb-6">
             <LayoutDashboard className="mr-2 h-4 w-4" />
-            Platform Capabilities
+            Shared Platform Capabilities
           </div>
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 leading-tight">
-            Built for modern <span className="text-gradient">academic operations</span>
+            The foundation behind every <span className="text-gradient">eLearning service</span>
           </h2>
           <p className="text-xl text-foreground/70">
-            A comprehensive suite of tools designed to handle the complexity of university workflows.
+            Core capabilities that support portal experiences, result workflows, and examination operations across the institution.
           </p>
         </Reveal>
 
@@ -43,7 +29,7 @@ export function KeyFeatures() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         >
-          {features.map((feature, i) => (
+          {sharedPlatformCapabilities.map((feature, i) => (
             <motion.div key={i} variants={{
               hidden: { opacity: 0, scale: 0.95 },
               visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } }

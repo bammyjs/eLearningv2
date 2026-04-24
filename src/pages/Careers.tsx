@@ -1,8 +1,8 @@
-import { Briefcase, } from 'lucide-react';
+import { ArrowRight, Briefcase, Mail } from 'lucide-react';
 import { useEffect } from 'react';
 import { Container, Reveal } from '../components/ui/Layout';
-
-
+import { Link } from 'react-router-dom';
+import { Button } from '../components/ui/Button';
 
 export default function Careers() {
   useEffect(() => {
@@ -26,35 +26,18 @@ export default function Careers() {
               We Are Not Hiring <span className="text-gradient-primary">At The Moment</span>
             </h1>
 
-            {/* <p className="text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-foreground/70 max-w-3xl mx-auto leading-relaxed">
               Thank you for your interest in joining eLearning. Our team is not actively recruiting right now,
               but we are always excited to connect with people who care about improving academic systems for universities.
-            </p> */}
+            </p>
           </Reveal>
 
-          {/* <div className="grid lg:grid-cols-[1.4fr_1fr] gap-8 items-stretch">
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 items-stretch">
             <Reveal delay={0.1} className="rounded-3xl border border-foreground/10 bg-surface/80 shadow-2xl p-8 md:p-10">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-primary-500/15 text-primary-300 flex items-center justify-center">
-                  <Sparkles className="w-6 h-6" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-heading font-bold text-foreground">Stay In Touch</h2>
-                  <p className="text-foreground/65">We would still love to hear from mission-aligned talent.</p>
-                </div>
-              </div>
-
-              <div className="space-y-4 mb-8">
-                {reasonsToStayConnected.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-start gap-3 rounded-2xl border border-foreground/10 bg-background/60 px-4 py-4"
-                  >
-                    <CheckCircle2 className="w-5 h-5 text-primary-300 mt-0.5 flex-shrink-0" />
-                    <p className="text-foreground/75 leading-relaxed">{item}</p>
-                  </div>
-                ))}
-              </div>
+              <h2 className="text-2xl font-heading font-bold text-foreground mb-4">Stay connected with us</h2>
+              <p className="text-foreground/70 leading-relaxed mb-8">
+                While there are no open roles right now, we welcome thoughtful introductions from people who are passionate about improving university operations through technology.
+              </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact" className="w-full sm:w-auto">
@@ -77,25 +60,21 @@ export default function Careers() {
               <div className="space-y-6">
                 <div>
                   <p className="text-sm uppercase tracking-[0.2em] text-primary-300 mb-2">Current Status</p>
-                  <p className="text-foreground/75 leading-relaxed">
-                    There are no open roles at this time.
-                  </p>
+                  <p className="text-foreground/75 leading-relaxed">There are no open roles at this time.</p>
                 </div>
                 <div>
                   <p className="text-sm uppercase tracking-[0.2em] text-primary-300 mb-2">Future Openings</p>
-                  <p className="text-foreground/75 leading-relaxed">
-                    New roles will be announced when we begin hiring again.
-                  </p>
+                  <p className="text-foreground/75 leading-relaxed">New roles will be announced when we begin hiring again.</p>
                 </div>
                 <div>
                   <p className="text-sm uppercase tracking-[0.2em] text-primary-300 mb-2">Best Contact</p>
                   <p className="text-foreground/75 leading-relaxed">
-                    Reach us at <a href="mailto:hello@elearning.ng" className="text-primary-300 hover:text-accent-300 transition-colors">hello@elearning.ng</a> if you want to introduce yourself.
+                    Reach us at <a href="mailto:hello@elearning.ng" className="text-primary-300 hover:text-accent-300 transition-colors">hello@elearning.ng</a>.
                   </p>
                 </div>
               </div>
             </Reveal>
-          </div> */}
+          </div>
         </div>
       </Container>
     </main>

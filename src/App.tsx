@@ -4,7 +4,9 @@ import { Header } from './components/ui/Header';
 import { Footer } from './components/ui/Footer';
 
 const Home = lazy(() => import('./pages/Home'));
-const Features = lazy(() => import('./pages/Features'));
+const Services = lazy(() => import('./pages/Services'));
+const ServiceDetail = lazy(() => import('./pages/ServiceDetail'));
+const About = lazy(() => import('./pages/About'));
 const Team = lazy(() => import('./pages/Team'));
 const Security = lazy(() => import('./pages/Security'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -30,7 +32,10 @@ function App() {
           <Suspense fallback={<RouteFallback />}>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/features" element={<Features />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/features" element={<Services />} />
+              <Route path="/services/:slug" element={<ServiceDetail />} />
+              <Route path="/about" element={<About />} />
               <Route path="/team" element={<Team />} />
               <Route path="/security" element={<Security />} />
               <Route path="/contact" element={<Contact />} />

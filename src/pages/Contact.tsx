@@ -1,12 +1,62 @@
-import { Container, Section, Reveal } from '../components/ui/Layout';
+import { Container, Reveal } from '../components/ui/Layout';
 import { Button } from '../components/ui/Button';
-import { Mail, MapPin, Phone } from 'lucide-react';
-import { useEffect } from 'react';
+import { AlertCircle, CheckCircle2, LoaderCircle, Mail, MapPin, Phone } from 'lucide-react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { ContactSubmission, isSupabaseConfigured, supabase } from '../lib/supabase';
+
+const initialFormState: ContactSubmission = {
+  university_name: '',
+  first_name: '',
+  last_name: '',
+  work_email: '',
+  message: '',
+};
 
 export default function Contact() {
+  const [formData, setFormData] = useState<ContactSubmission>(initialFormState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [submitSuccess, setSubmitSuccess] = useState('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitError('');
+    setSubmitSuccess('');
+
+    if (Object.values(formData).some((value) => !value.trim())) {
+      setSubmitError('Please complete all fields before sending your message.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const { error } = await supabase.from('contact_submissions').insert({
+      university_name: formData.university_name.trim(),
+      first_name: formData.first_name.trim(),
+      last_name: formData.last_name.trim(),
+      work_email: formData.work_email.trim(),
+      message: formData.message.trim(),
+    });
+
+    setIsSubmitting(false);
+
+    if (error) {
+      setSubmitError(error.message || 'We could not send your message right now. Please try again.');
+      return;
+    }
+
+    setFormData(initialFormState);
+    setSubmitSuccess('Thanks, your message has been received. Our team will get back to you shortly.');
+  };
 
   return (
     <main className="min-h-screen pt-32 pb-20 relative">
@@ -23,30 +73,59 @@ export default function Contact() {
 
           <div className="grid md:grid-cols-2 gap-12">
             <Reveal delay={0.1} className="glass-panel p-8 rounded-2xl">
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                {!isSupabaseConfigured && (
+                  <div className="rounded-xl border border-amber-400/25 bg-amber-400/10 px-4 py-3 text-sm text-amber-200">
+                    Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` to `.env.local` to activate submissions.
+                  </div>
+                )}
+
+                {submitError && (
+                  <div className="flex items-start gap-3 rounded-xl border border-red-400/20 bg-red-400/10 px-4 py-3 text-sm text-red-200">
+                    <AlertCircle className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                    <span>{submitError}</span>
+                  </div>
+                )}
+
+                {submitSuccess && (
+                  <div className="flex items-start gap-3 rounded-xl border border-emerald-400/20 bg-emerald-400/10 px-4 py-3 text-sm text-emerald-200">
+                    <CheckCircle2 className="h-5 w-5 flex-shrink-0 mt-0.5" />
+                    <span>{submitSuccess}</span>
+                  </div>
+                )}
+
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground/80">University Name</label>
-                  <input type="text" className="w-full bg-surface-light border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-primary-500/40" placeholder="e.g. State University" />
+                  <label htmlFor="university_name" className="text-sm font-medium text-foreground/80">University Name</label>
+                  <input id="university_name" name="university_name" type="text" value={formData.university_name} onChange={handleChange} className="w-full bg-surface-light border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-primary-500/40" placeholder="e.g. State University" />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground/80">First Name</label>
-                    <input type="text" className="w-full bg-surface-light border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-primary-500/40" placeholder="John" />
+                    <label htmlFor="first_name" className="text-sm font-medium text-foreground/80">First Name</label>
+                    <input id="first_name" name="first_name" type="text" value={formData.first_name} onChange={handleChange} className="w-full bg-surface-light border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-primary-500/40" placeholder="John" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-foreground/80">Last Name</label>
-                    <input type="text" className="w-full bg-surface-light border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-primary-500/40" placeholder="Doe" />
+                    <label htmlFor="last_name" className="text-sm font-medium text-foreground/80">Last Name</label>
+                    <input id="last_name" name="last_name" type="text" value={formData.last_name} onChange={handleChange} className="w-full bg-surface-light border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-primary-500/40" placeholder="Doe" />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground/80">Work Email</label>
-                  <input type="email" className="w-full bg-surface-light border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-primary-500/40" placeholder="john@university.edu" />
+                  <label htmlFor="work_email" className="text-sm font-medium text-foreground/80">Work Email</label>
+                  <input id="work_email" name="work_email" type="email" value={formData.work_email} onChange={handleChange} className="w-full bg-surface-light border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-primary-500/40" placeholder="john@university.edu" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground/80">Message</label>
-                  <textarea rows={4} className="w-full bg-surface-light border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-primary-500/40 resize-none" placeholder="How can we help?" />
+                  <label htmlFor="message" className="text-sm font-medium text-foreground/80">Message</label>
+                  <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="w-full bg-surface-light border border-foreground/10 rounded-lg px-4 py-3 text-foreground placeholder:text-foreground/35 focus:outline-none focus:ring-2 focus:ring-primary-500/40 resize-none" placeholder="How can we help?" />
                 </div>
-                <Button size="lg" className="w-full">Send Message</Button>
+                <Button size="lg" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <LoaderCircle className="mr-2 h-5 w-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    'Send Message'
+                  )}
+                </Button>
               </form>
             </Reveal>
 

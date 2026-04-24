@@ -1,6 +1,7 @@
-import {Github, Twitter, Linkedin, Instagram } from 'lucide-react';
+import {Twitter, Linkedin, Instagram, } from 'lucide-react';
 import elearningLogo from '@/assets/elearningLogo2.png';
 import { Link } from 'react-router-dom';
+import { services } from '../../data/services';
 
 export function Footer() {
 
@@ -21,24 +22,28 @@ export function Footer() {
              <img src={elearningLogo} alt="eLearning" className="h-auto w-40 " />
            </Link>
             <p className="text-foreground/70 text-sm leading-relaxed max-w-sm">
-              Modernizing academic workflows with secure, scalable systems that automate result processing and administrative tasks for universities globally.
+              Modernizing university operations with secure, scalable services across portals, result workflows, and examination management.
             </p>
           </div>
           
-          {/* <div>
-            <h4 className="text-foreground font-medium mb-4">Platform</h4>
+          <div>
+            <h4 className="text-foreground font-medium mb-4">Services</h4>
             <ul className="space-y-3 text-sm text-foreground/55">
-              <li><Link to="/features" className="hover:text-foreground transition-colors">Result Processing</Link></li>
-              <li><Link to="/features" className="hover:text-foreground transition-colors">Course Registration</Link></li>
-              <li><Link to="/features" className="hover:text-foreground transition-colors">Transcript Requests</Link></li>
-              <li><Link to="/features" className="hover:text-foreground transition-colors">Clearance Automation</Link></li>
+              <li><Link to="/services" className="hover:text-foreground transition-colors">All Services</Link></li>
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <Link to={`/services/${service.slug}`} className="hover:text-foreground transition-colors">
+                    {service.shortName}
+                  </Link>
+                </li>
+              ))}
             </ul>
-          </div> */}
+          </div>
           
           <div>
             <h4 className="text-foreground font-medium mb-4">Company</h4>
             <ul className="space-y-3 text-sm text-foreground/55">
-              <li><Link to="/team" className="hover:text-foreground transition-colors">About Us</Link></li>
+              <li><Link to="/about" className="hover:text-foreground transition-colors">About Us</Link></li>
               <li><Link to="/team" className="hover:text-foreground transition-colors">Team</Link></li>
               <li><Link to="/careers" className="hover:text-foreground transition-colors">Careers</Link></li>
               <li><Link to="/contact" className="hover:text-foreground transition-colors">Contact</Link></li>

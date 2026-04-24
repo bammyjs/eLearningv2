@@ -16,23 +16,23 @@ export function ProblemSolution() {
             </div>
             
             <h2 className="text-4xl font-bold leading-tight">
-              Manual academic workflows slow everything down
+              Fragmented academic systems create unnecessary friction
             </h2>
             
             <p className="text-xl text-zinc-400 leading-relaxed">
-              Universities often struggle with slow result processing, inconsistent records, manual approvals, and overloaded administrative teams. Students wait too long for results and clearance, while staff spend hours reconciling data and managing approval chains.
+              Universities often juggle disconnected portals, examination processes, result workflows, and manual approvals. That leaves students waiting, staff reconciling records by hand, and leadership without clear operational visibility.
             </p>
 
             <div className="grid grid-cols-2 gap-6 mt-8">
               <Card className="bg-background/50 border-white/5 p-5">
                 <Clock className="h-8 w-8 text-zinc-500 mb-4" />
-                <h4 className="text-white font-medium mb-2">Delayed Results</h4>
-                <p className="text-sm text-zinc-500">Weeks of manual processing and reconciliation.</p>
+                <h4 className="text-white font-medium mb-2">Slow Service Delivery</h4>
+                <p className="text-sm text-zinc-500">Critical student and staff tasks take longer than they should.</p>
               </Card>
               <Card className="bg-background/50 border-white/5 p-5">
                 <Layers className="h-8 w-8 text-zinc-500 mb-4" />
-                <h4 className="text-white font-medium mb-2">Fragmented Data</h4>
-                <p className="text-sm text-zinc-500">Silos of information across departments.</p>
+                <h4 className="text-white font-medium mb-2">Disconnected Processes</h4>
+                <p className="text-sm text-zinc-500">Departments rely on siloed tools and inconsistent records.</p>
               </Card>
             </div>
           </Reveal>
@@ -47,19 +47,19 @@ export function ProblemSolution() {
               </div>
               
               <h2 className="text-3xl font-bold leading-tight mb-6">
-                A unified system for academic records and approvals
+                One platform for portal, results, and examination operations
               </h2>
               
               <p className="text-lg text-zinc-300 leading-relaxed mb-8">
-                The Result Processing System centralizes course registration, result upload, broadsheet generation, transcript requests, clearance, and senate approvals. Every action is tracked, validated, and routed through the right role automatically.
+                eLearning brings institutional portal workflows, result processing, and examination operations into one coordinated environment. Every action is structured, visible, and routed through the right people with stronger control and less manual overhead.
               </p>
 
               <ul className="space-y-4">
                 {[
-                  'Automated approval chains (Lecturer → HOD → Dean)',
-                  'Centralized broadsheet generation',
-                  'Instant GPA/CGPA calculations',
-                  'Role-based data validation'
+                  'Connected workflows across portal, result, and examination services',
+                  'Role-based approvals for academic and administrative teams',
+                  'Centralized records with stronger visibility and accountability',
+                  'A better digital experience for students, staff, and leadership'
                 ].map((item, i) => (
                   <li key={i} className="flex items-start">
                     <CheckCircle className="h-6 w-6 text-primary-400 mr-3 flex-shrink-0" />

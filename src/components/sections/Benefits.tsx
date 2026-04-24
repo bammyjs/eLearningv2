@@ -4,11 +4,11 @@ import { TrendingUp, CheckCircle, Zap, ShieldCheck, Clock, Users, Building2 } fr
 import { motion } from 'framer-motion';
 
 const benefits = [
-  { icon: Zap, title: 'Faster result processing and approvals' },
+  { icon: Zap, title: 'Faster service delivery across key academic workflows' },
   { icon: CheckCircle, title: 'Fewer manual errors' },
   { icon: Users, title: 'Better transparency for students and staff' },
-  { icon: ShieldCheck, title: 'Accurate academic records' },
-  { icon: Clock, title: 'Easier transcript and clearance workflows' },
+  { icon: ShieldCheck, title: 'Stronger control over institutional records' },
+  { icon: Clock, title: 'Less administrative waiting and follow-up' },
   { icon: TrendingUp, title: 'Reduced administrative bottlenecks' },
   { icon: Building2, title: 'Better trust in institutional processes' },
 ];
@@ -22,7 +22,7 @@ export function Benefits() {
             What universities <span className="text-gradient-primary">gain</span>
           </h2>
           <p className="text-xl text-zinc-400">
-            A shift from manual paperwork to a streamlined, modern digital experience.
+            A more coordinated digital operating model for students, staff, and institutional leadership.
           </p>
         </Reveal>
 
