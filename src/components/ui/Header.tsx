@@ -127,7 +127,7 @@ export function Header() {
       <div
         className={cn(
           'md:hidden overflow-hidden transition-all duration-300',
-          mobileMenuOpen ? 'max-h-[420px] opacity-100' : 'max-h-0 opacity-0'
+          mobileMenuOpen ? 'max-h-fit opacity-100' : 'max-h-0 opacity-0'
         )}
       >
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 pb-4">
