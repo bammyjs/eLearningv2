@@ -4,7 +4,7 @@ import { Card } from '../ui/Card';
 
 export function SecurityPerformance() {
   return (
-    <Section className="bg-surface border-y border-white/5 relative overflow-hidden">
+    <Section className="bg-white border-y border-slate-200 relative overflow-hidden dark:bg-surface dark:border-foreground/10">
       {/* Background glowing effects */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-primary-600/10 blur-[120px] rounded-full -z-10" />
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-accent-600/10 blur-[120px] rounded-full -z-10" />
@@ -21,7 +21,7 @@ export function SecurityPerformance() {
               Built for security, speed, and scale
             </h2>
             
-            <p className="text-xl text-zinc-400 leading-relaxed">
+            <p className="text-xl text-foreground/70 leading-relaxed">
               The system is designed with secure authentication methods including WebAuthn passkeys, TOTP, and 2FA. It uses encrypted storage, role-based access control, secure session handling, and detailed audit logs. The platform is optimized for peak academic periods and supports desktop, tablet, and mobile access.
             </p>
           </Reveal>
@@ -36,12 +36,12 @@ export function SecurityPerformance() {
                 { icon: Shield, title: 'Audit Logs', desc: 'Complete activity tracking' },
                 { icon: Smartphone, title: 'Cross-Device', desc: 'Responsive interface' },
               ].map((item, i) => (
-                <Card key={i} hoverEffect className="bg-background/50 border-white/5 p-6 flex flex-col items-start">
-                  <div className="h-10 w-10 rounded-lg bg-surface flex items-center justify-center mb-4 border border-white/5">
+                <Card key={i} hoverEffect className="bg-background/50 border-foreground/10 p-6 flex flex-col items-start">
+                  <div className="h-10 w-10 rounded-lg bg-surface flex items-center justify-center mb-4 border border-foreground/10">
                     <item.icon className="h-5 w-5 text-primary-400" />
                   </div>
-                  <h4 className="text-white font-medium mb-1">{item.title}</h4>
-                  <p className="text-sm text-zinc-500">{item.desc}</p>
+                  <h4 className="text-foreground font-medium mb-1">{item.title}</h4>
+                  <p className="text-sm text-foreground/60">{item.desc}</p>
                 </Card>
               ))}
             </div>

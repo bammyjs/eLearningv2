@@ -19,13 +19,13 @@ export default {
         heading: ["Montserrat", "Helvetica", "Arial", "sans-serif"],
       },
       colors: {
-        background: "#151730",
-        surface: "#1d2145",
-        "surface-light": "#2a3163",
-        foreground: "#E7edf5",
+        background: "rgb(var(--background) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        "surface-light": "rgb(var(--surface-light) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
         brand: {
-          navy: "#151730",
-          mist: "#E7edf5",
+          navy: "rgb(var(--background) / <alpha-value>)",
+          mist: "rgb(var(--foreground) / <alpha-value>)",
           royal: "#005ff0",
         },
         primary: {

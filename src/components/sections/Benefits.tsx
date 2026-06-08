@@ -15,13 +15,13 @@ const benefits = [
 
 export function Benefits() {
   return (
-    <Section className="bg-background">
+    <Section className="bg-white dark:bg-background">
       <Container>
         <Reveal className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             What universities <span className="text-gradient-primary">gain</span>
           </h2>
-          <p className="text-xl text-zinc-400">
+          <p className="text-xl text-foreground/70">
             A more coordinated digital operating model for students, staff, and institutional leadership.
           </p>
         </Reveal>
@@ -40,9 +40,9 @@ export function Benefits() {
             }}
             className={i === benefits.length - 1 ? 'lg:col-span-3' : ''}
             >
-              <Card hoverEffect className={`h-full bg-surface/50 border-white/5 flex items-center p-6 ${i === benefits.length - 1 ? 'justify-center text-center' : ''}`}>
+              <Card hoverEffect className={`h-full bg-surface/50 border-foreground/10 flex items-center p-6 ${i === benefits.length - 1 ? 'justify-center text-center' : ''}`}>
                 <benefit.icon className="h-8 w-8 text-primary-400 mr-4 flex-shrink-0" />
-                <span className="text-lg font-medium text-zinc-200">{benefit.title}</span>
+                <span className="text-lg font-medium text-foreground/82">{benefit.title}</span>
               </Card>
             </motion.div>
           ))}

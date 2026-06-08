@@ -53,14 +53,14 @@ const team = [
 
 export function TeamSection() {
   return (
-    <Section className="bg-surface relative border-y border-white/5">
+    <Section className="bg-slate-50 relative border-y border-slate-200 dark:bg-surface dark:border-foreground/10">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent-900/10 via-surface to-surface -z-10" />
       <Container>
         <Reveal className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
             Meet the <span className="text-gradient-primary">Experts</span>
           </h2>
-          <p className="text-xl text-zinc-400">
+          <p className="text-xl text-foreground/70">
             Our team combines decades of experience in enterprise software and higher education administration.
           </p>
         </Reveal>
@@ -77,7 +77,7 @@ export function TeamSection() {
               hidden: { opacity: 0, y: 30 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
             }}>
-              <Card hoverEffect className="bg-background/60 border-white/5 p-0 overflow-hidden group">
+              <Card hoverEffect className="bg-background/60 border-foreground/10 p-0 overflow-hidden group">
                 <div className="aspect-square  overflow-hidden relative">
                   <div className="absolute inset-0 bg-primary-500/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <img
@@ -88,12 +88,12 @@ export function TeamSection() {
                   />
                 </div>
                 <div className="p-6 text-center">
-                  <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-1">{member.name}</h3>
                   <p className="text-sm text-[#005ff0] font-medium mb-4">{member.role}</p>
-                  <div className="flex items-center justify-center gap-4 text-zinc-500">
-                    <a href={member.socials?.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Linkedin className="w-4 h-4" /></a>
-                    <a href={member.socials?.x} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Twitter className="w-4 h-4" /></a>
-                    <a href={member.socials?.github} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Github className="w-4 h-4" /></a>
+                  <div className="flex items-center justify-center gap-4 text-foreground/55">
+                    <a href={member.socials?.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Linkedin className="w-4 h-4" /></a>
+                    <a href={member.socials?.x} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Twitter className="w-4 h-4" /></a>
+                    <a href={member.socials?.github} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors"><Github className="w-4 h-4" /></a>
                   </div>
                 </div>
               </Card>

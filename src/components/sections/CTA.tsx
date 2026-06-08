@@ -12,12 +12,12 @@ type CTAProps = {
 
 export function CTA({
   title = 'Ready to modernize academic operations?',
-  description = 'Partner with eLearning to deploy a secure, high-performance result processing system for your university.',
-  primaryLabel = 'Book a Demo',
+  description = 'Book a demo to review your institution’s workflow, governance needs, and the fastest rollout path by module.',
+  primaryLabel = 'Book a demo',
   secondaryLabel = 'Contact Sales',
 }: CTAProps) {
   return (
-    <Section className="bg-background py-32 md:py-48 relative overflow-hidden">
+    <Section className="bg-white py-32 md:py-48 relative overflow-hidden dark:bg-background">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-primary-900/30 via-background to-background -z-10" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary-500/20 blur-[150px] rounded-full -z-10 pointer-events-none" />
 

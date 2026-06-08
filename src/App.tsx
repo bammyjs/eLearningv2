@@ -1,7 +1,8 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/ui/Header';
-import { Footer } from './components/ui/Footer';
+import { IS_COMING_SOON } from './config/site';
+import ComingSoon from './pages/ComingSoon';
 
 const Home = lazy(() => import('./pages/Home'));
 const Services = lazy(() => import('./pages/Services'));
@@ -12,6 +13,8 @@ const Security = lazy(() => import('./pages/Security'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Legal = lazy(() => import('./pages/Legal'));
 const Careers = lazy(() => import('./pages/Careers'));
+const Solutions = lazy(() => import('./pages/Solutions'));
+const SuccessStoryAAUA = lazy(() => import('./pages/SuccessStoryAAUA'));
 
 function RouteFallback() {
   return (
@@ -24,9 +27,13 @@ function RouteFallback() {
 }
 
 function App() {
+  if (IS_COMING_SOON) {
+    return <ComingSoon />;
+  }
+
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-background text-foreground/80 font-sans antialiased">
+      <div className="flex min-h-screen flex-col bg-white text-slate-800 font-sans antialiased dark:bg-background dark:text-foreground/80">
         <Header />
         <div className="flex-1">
           <Suspense fallback={<RouteFallback />}>
@@ -35,6 +42,8 @@ function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/features" element={<Services />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
+              <Route path="/solutions" element={<Solutions />} />
+              <Route path="/success-stories/aaua" element={<SuccessStoryAAUA />} />
               <Route path="/about" element={<About />} />
               <Route path="/team" element={<Team />} />
               <Route path="/security" element={<Security />} />
@@ -44,7 +53,6 @@ function App() {
             </Routes>
           </Suspense>
         </div>
-        <Footer />
       </div>
     </Router>
   );

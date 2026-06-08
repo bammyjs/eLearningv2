@@ -1,10 +1,10 @@
 import { Container, Section, Reveal } from '../ui/Layout';
 import { Card } from '../ui/Card';
-import { Clock, AlertTriangle, Layers, Zap, CheckCircle, ShieldCheck } from 'lucide-react';
+import { Clock, AlertTriangle, Layers, Zap, CheckCircle } from 'lucide-react';
 
 export function ProblemSolution() {
   return (
-    <Section className="bg-surface relative border-y border-white/5">
+    <Section className="bg-slate-50 relative border-y border-slate-200 dark:bg-surface dark:border-foreground/10">
       <Container>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           
@@ -19,20 +19,20 @@ export function ProblemSolution() {
               Fragmented academic systems create unnecessary friction
             </h2>
             
-            <p className="text-xl text-zinc-400 leading-relaxed">
+            <p className="text-xl text-foreground/70 leading-relaxed">
               Universities often juggle disconnected portals, examination processes, result workflows, and manual approvals. That leaves students waiting, staff reconciling records by hand, and leadership without clear operational visibility.
             </p>
 
             <div className="grid grid-cols-2 gap-6 mt-8">
-              <Card className="bg-background/50 border-white/5 p-5">
-                <Clock className="h-8 w-8 text-zinc-500 mb-4" />
-                <h4 className="text-white font-medium mb-2">Slow Service Delivery</h4>
-                <p className="text-sm text-zinc-500">Critical student and staff tasks take longer than they should.</p>
+              <Card className="bg-background/50 border-foreground/10 p-5">
+                <Clock className="h-8 w-8 text-foreground/50 mb-4" />
+                <h4 className="text-foreground font-medium mb-2">Slow Service Delivery</h4>
+                <p className="text-sm text-foreground/60">Critical student and staff tasks take longer than they should.</p>
               </Card>
-              <Card className="bg-background/50 border-white/5 p-5">
-                <Layers className="h-8 w-8 text-zinc-500 mb-4" />
-                <h4 className="text-white font-medium mb-2">Disconnected Processes</h4>
-                <p className="text-sm text-zinc-500">Departments rely on siloed tools and inconsistent records.</p>
+              <Card className="bg-background/50 border-foreground/10 p-5">
+                <Layers className="h-8 w-8 text-foreground/50 mb-4" />
+                <h4 className="text-foreground font-medium mb-2">Disconnected Processes</h4>
+                <p className="text-sm text-foreground/60">Departments rely on siloed tools and inconsistent records.</p>
               </Card>
             </div>
           </Reveal>
@@ -50,7 +50,7 @@ export function ProblemSolution() {
                 One platform for portal, results, and examination operations
               </h2>
               
-              <p className="text-lg text-zinc-300 leading-relaxed mb-8">
+              <p className="text-lg text-foreground/74 leading-relaxed mb-8">
                 eLearning brings institutional portal workflows, result processing, and examination operations into one coordinated environment. Every action is structured, visible, and routed through the right people with stronger control and less manual overhead.
               </p>
 
@@ -63,7 +63,7 @@ export function ProblemSolution() {
                 ].map((item, i) => (
                   <li key={i} className="flex items-start">
                     <CheckCircle className="h-6 w-6 text-primary-400 mr-3 flex-shrink-0" />
-                    <span className="text-zinc-200">{item}</span>
+                    <span className="text-foreground/82">{item}</span>
                   </li>
                 ))}
               </ul>

@@ -6,7 +6,7 @@ import { Container, Reveal, Section } from '../ui/Layout';
 
 export function ServiceOverview() {
   return (
-    <Section className="bg-surface relative border-y border-white/5">
+    <Section className="bg-slate-50 relative border-y border-slate-200 dark:bg-surface dark:border-foreground/10">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900/10 via-surface to-surface -z-10" />
       <Container>
         <Reveal className="text-center max-w-3xl mx-auto mb-16">

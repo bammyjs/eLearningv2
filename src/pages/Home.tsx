@@ -1,4 +1,6 @@
 import { Hero } from '../components/sections/Hero';
+import { SolutionsTeaser } from '../components/sections/SolutionsTeaser';
+import { CaseStudyTeaser } from '../components/sections/CaseStudyTeaser';
 import { ProblemSolution } from '../components/sections/ProblemSolution';
 import { SecurityPerformance } from '../components/sections/SecurityPerformance';
 import { TeamSection } from '../components/sections/TeamSection';
@@ -15,6 +17,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero />
+      <SolutionsTeaser />
+      <CaseStudyTeaser />
       <ProblemSolution />
       <ServiceOverview />
       <SecurityPerformance />

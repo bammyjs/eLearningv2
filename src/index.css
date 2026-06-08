@@ -6,12 +6,27 @@
 @tailwind utilities;
 
 @layer base {
+  :root,
+  .light {
+    --background: 248 250 255;
+    --surface: 255 255 255;
+    --surface-light: 238 243 249;
+    --foreground: 15 23 42;
+  }
+
+  .dark {
+    --background: 21 23 48;
+    --surface: 29 33 69;
+    --surface-light: 42 49 99;
+    --foreground: 231 237 245;
+  }
+
   body {
-    @apply bg-background text-zinc-300 font-sans antialiased overflow-x-hidden selection:bg-primary-500/30 selection:text-primary-100;
+    @apply bg-background text-foreground/80 font-sans antialiased overflow-x-hidden selection:bg-primary-500/30 selection:text-primary-100;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading text-white;
+    @apply font-heading text-foreground;
   }
 }
 
@@ -25,7 +40,7 @@
   }
 
   .glass-panel {
-    @apply bg-surface/60 backdrop-blur-xl border border-white/5 shadow-2xl;
+    @apply bg-surface/70 backdrop-blur-xl border border-foreground/10 shadow-2xl;
   }
 }
 
@@ -35,11 +50,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: theme('colors.background');
+  background: rgb(var(--background));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: theme('colors.surface-light');
+  background: rgb(var(--surface-light));
   border-radius: 4px;
 }
 

@@ -28,3 +28,6 @@ dist-ssr
 # env files
 .env
 .env.example
+.env.local
+.env.development
+.env.production

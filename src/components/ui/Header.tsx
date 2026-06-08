@@ -1,4 +1,4 @@
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, Moon, Sun, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { useEffect, useState } from 'react';
 import { cn } from '../ui/Button';
@@ -6,6 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 import elearningLogo from '@/assets/elearningLogo.png';
 import elearningLogo2 from '@/assets/logo.png';
 import { services } from '../../data/services';
+import { useTheme } from '../../hooks/useTheme';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -13,6 +14,7 @@ export function Header() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
   const location = useLocation();
+  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -48,7 +50,7 @@ export function Header() {
   return (
     <header className={cn(
       'fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b',
-      scrolled ? 'bg-background/85 backdrop-blur-xl border-white/10 shadow-xl' : 'bg-transparent border-transparent'
+      scrolled ? 'bg-background/85 backdrop-blur-xl border-foreground/10 shadow-xl' : 'bg-transparent border-transparent'
     )}>
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <Link to="/" className="hidden sm:flex items-center gap-2 group">
@@ -61,6 +63,10 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
           <Link to="/" className={linkClasses(location.pathname === '/')}>
             Home
+          </Link>
+
+          <Link to="/solutions" className={linkClasses(location.pathname.startsWith('/solutions'))}>
+            Solutions
           </Link>
 
           <div className="relative group">
@@ -109,6 +115,14 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-foreground/10 bg-surface/80 text-foreground transition-colors hover:bg-surface-light"
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </button>
           <Link to="/contact" className="hidden md:inline-flex">
             <Button size="sm" className="hover:scale-105 transition-transform">Request Demo</Button>
           </Link>
@@ -141,6 +155,18 @@ export function Header() {
                 )}
               >
                 Home
+              </Link>
+
+              <Link
+                to="/solutions"
+                className={cn(
+                  'rounded-xl px-4 py-3 text-sm font-medium transition-colors',
+                  location.pathname.startsWith('/solutions')
+                    ? 'bg-primary-500/15 text-foreground'
+                    : 'text-foreground/70 hover:bg-foreground/5 hover:text-foreground'
+                )}
+              >
+                Solutions
               </Link>
 
               <button
@@ -216,6 +242,16 @@ export function Header() {
               <Link to="/contact" className="pt-2">
                 <Button size="sm" className="w-full justify-center">Request Demo</Button>
               </Link>
+
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="mt-2 inline-flex h-11 items-center justify-between rounded-xl border border-foreground/10 bg-surface/80 px-4 text-sm font-medium text-foreground transition-colors hover:bg-surface-light"
+                aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              >
+                <span>{isDark ? 'Light mode' : 'Dark mode'}</span>
+                {isDark ? <Sun className="h-5 w-5 text-primary-300" /> : <Moon className="h-5 w-5 text-primary-300" />}
+              </button>
             </nav>
           </div>
         </div>
