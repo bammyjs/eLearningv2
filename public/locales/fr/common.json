@@ -1,0 +1,10 @@
+{
+  "actions": { "bookDemo": "Demander une démo", "learnMore": "En savoir plus" },
+  "navigation": {
+    "home": "Accueil",
+    "About": "À propos",
+    "Solutions": "Solutions",
+    "Product": "Produit",
+    "Contact": "Contact"
+  }
+}

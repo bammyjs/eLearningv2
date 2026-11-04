@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>eLearning | Academic Workflow Platform for Universities</title>
     <meta
@@ -15,7 +14,6 @@
     />
     <meta name="author" content="eLearning" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#151730" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="eLearning | Academic Workflow Platform for Universities" />
@@ -33,16 +31,46 @@
       content="Modern academic workflow software for universities, built for secure processing, approvals, transcript requests, and student services."
     />
     <meta name="twitter:image" content="/favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png?v=20261013" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261013" />
+    <link rel="shortcut icon" href="/favicon.ico?v=20261013" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20261013" />
+    <meta name="apple-mobile-web-app-title" content="eLearning Portal" />
+    <link rel="manifest" href="/site.webmanifest?v=20261013" />
     <script type="module">
       if (import.meta.hot?.on) {
-        import.meta.hot.on('vite:error', (error) => {
+        import.meta.hot.on("vite:error", (error) => {
           if (error.err) {
-            console.error(
-              [error.err.message, error.err.frame].filter(Boolean).join('\n'),
-            )
+            console.error([error.err.message, error.err.frame].filter(Boolean).join("\n"));
           }
-        })
+        });
       }
+    </script>
+    <script>
+      if (window.top !== window.self) {
+        try {
+          window.top.location = window.self.location;
+        } catch (e) {
+          window.self.location = window.self.location;
+        }
+      }
+      try {
+        window.history.scrollRestoration = "manual";
+      } catch (e) {
+        void e;
+      }
+      try {
+        window.scrollTo(0, 0);
+      } catch (e) {
+        void e;
+      }
+      window.addEventListener(
+        "pageshow",
+        () => {
+          window.scrollTo(0, 0);
+        },
+        { once: true },
+      );
     </script>
   </head>
   <body>

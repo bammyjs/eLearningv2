@@ -1,92 +1,73 @@
-# eLearning V2
+# React + TypeScript + Vite
 
-Modern marketing website and product showcase for an academic workflow platform. The application presents eLearning's core value proposition for universities, including result processing, course registration, transcript requests, clearance automation, security, and role-based operations.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Overview
+Currently, two official plugins are available:
 
-This project is a React + TypeScript + Vite single-page application styled with Tailwind CSS and animated with Framer Motion. It includes a branded design system, multi-section landing experience, and supporting routes for product, team, legal, security, and contact pages.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Key Features
+## React Compiler
 
-- Hero content slider with product-offer messaging
-- Branded design system using Deep Navy, Mist Blue, and Royal Blue
-- Product showcase sections for academic workflows and operations
-- Contact page for demo and sales inquiries
-- Security, team, legal, and feature detail pages
-- Motion-enhanced interface using Framer Motion
-- Custom visual background effect using `ogl`
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Tech Stack
+## Expanding the ESLint configuration
 
-- React 18
-- TypeScript
-- Vite
-- Tailwind CSS
-- Framer Motion
-- React Router
-- Lucide React
-- OGL
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Project Structure
+```js
+export default defineConfig([
+  globalIgnores(["dist"]),
+  {
+    files: ["**/*.{ts,tsx}"],
+    extends: [
+      // Other configs...
 
-```text
-src/
-  assets/                Static images and brand assets
-  components/
-    sections/            Landing page sections
-    ui/                  Shared UI primitives and visual utilities
-  pages/                 Route-level pages
-  App.tsx                App shell and router setup
-  main.tsx               Application entry point
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+]);
 ```
 
-## Getting Started
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-### 1. Install dependencies
+```js
+// eslint.config.js
+import reactX from "eslint-plugin-react-x";
+import reactDom from "eslint-plugin-react-dom";
 
-```bash
-npm install
+export default defineConfig([
+  globalIgnores(["dist"]),
+  {
+    files: ["**/*.{ts,tsx}"],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs["recommended-typescript"],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+]);
 ```
-
-### 2. Start the development server
-
-```bash
-npm run dev
-```
-
-### 3. Build for production
-
-```bash
-npm run build
-```
-
-### 4. Run a type check
-
-```bash
-npm run check
-```
-
-## Available Scripts
-
-- `npm run dev` starts the Vite development server
-- `npm run build` builds the app for production
-- `npm run preview` previews the production build locally
-- `npm run lint` runs ESLint
-- `npm run check` runs the TypeScript project check without emitting files
-
-## Branding
-
-- `Deep Navy`: `#151730`
-- `Mist Blue`: `#E7EDF5`
-- `Royal Blue`: `#005FF0`
-
-Typography:
-
-- Primary body font: `Helvetica`
-- Heading/display pairing: `Montserrat`
-
-## Notes
-
-- Tailwind theme tokens are configured in `tailwind.config.js`
-- Shared global styles live in `src/index.css`
-- Main landing page composition is defined in `src/pages/Home.tsx`

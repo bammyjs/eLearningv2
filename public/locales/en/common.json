@@ -1,0 +1,10 @@
+{
+  "actions": { "bookDemo": "Book a Demo", "learnMore": "Learn more" },
+  "navigation": {
+    "home": "Home",
+    "About": "About",
+    "Solutions": "Solutions",
+    "Product": "Product",
+    "Contact": "Contact"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "eLearning Portal",
+  "short_name": "eLearning",
+  "description": "eLearning, university software, academic workflow platform, result processing, course registration, transcript management, clearance automation.",
+  "lang": "en",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#2661ef",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png?v=20261013",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png?v=20261013",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,50 +1,132 @@
-import { Container, Section, Reveal } from '../components/ui/Layout';
-import { useEffect } from 'react';
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import Layout from "../components/layouts/Layout";
+import { ScrollReveal } from "../components/ScrollReveal";
+import { legalPolicies, privacyPolicy, type LegalPolicy } from "../data/legalPolicies";
 
 export default function Legal() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const [openPolicyId, setOpenPolicyId] = useState<LegalPolicy["id"] | null>("privacy");
+  const [activePolicy, setActivePolicy] = useState<LegalPolicy>(privacyPolicy);
+  const [activeSection, setActiveSection] = useState(privacyPolicy.sections[0].title);
+
+  const selectPolicy = (policy: LegalPolicy) => {
+    setActivePolicy(policy);
+    setActiveSection(policy.sections[0].title);
+    document.getElementById("legal-document")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
+  const selectSection = (policy: LegalPolicy, section: string) => {
+    setActivePolicy(policy);
+    setActiveSection(section);
+    window.requestAnimationFrame(() => {
+      document.getElementById(`legal-${policy.id}-${section}`)?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  };
 
   return (
-    <main className="min-h-screen pt-32 pb-20 relative bg-background text-zinc-300">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-900/10 via-background to-background -z-10" />
-      <Container className="max-w-4xl">
-        <Reveal>
-          <h1 className="text-4xl md:text-6xl font-bold mb-12 text-white">Legal & Privacy</h1>
-          <div className="prose prose-invert max-w-none space-y-12">
-            <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Privacy Policy</h2>
-              <p>Last updated: {new Date().toLocaleDateString()}</p>
-              <p className="leading-relaxed">
-                At eLearning, we take your privacy seriously. We only collect the data necessary to provide and improve our Result Processing System. 
-                All academic records are encrypted at rest and in transit, and we never share institutional data with third parties without explicit consent.
-              </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>We comply with all standard academic data protection regulations.</li>
-                <li>Your data is hosted in secure, redundant environments.</li>
-                <li>We provide full data export capabilities for your institution at any time.</li>
-              </ul>
-            </section>
-            
-            <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Terms of Service</h2>
-              <p className="leading-relaxed">
-                By using our platform, you agree to these terms. Our software is provided "as is" and we are committed to maintaining 99.9% uptime. 
-                Universities are responsible for managing access roles and ensuring authorized use of the system.
-              </p>
-            </section>
+    <Layout>
+      <section className="w-full bg-brand-base/20 px-4 py-10 md:py-20 ">
+        <ScrollReveal
+          className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-3 text-center"
+          preset="soft-blur"
+        >
+          <p className="rounded-full bg-[#06BAD61F] px-3 py-1 font-jetbrains text-xs font-medium tracking-[.14em] text-text-default">
+            LEGAL
+          </p>
+          <h1 className="heading2 max-w-5xl text-4xl leading-[1.05] text-text-default md:text-6xl">
+            Our legal documents and policies.
+          </h1>
+          <p className="lead max-w-2xl text-base leading-7 text-text-muted md:text-lg">
+            Plain-language summaries precede each section. The full legal text follows. If you have
+            questions about any of these documents, contact us at legal@elearning.ng.
+          </p>
+        </ScrollReveal>
+      </section>
 
-            {/* <section className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Cookie Policy</h2>
-              <p className="leading-relaxed">
-                We use strictly necessary cookies to keep you logged in and secure your session. 
-                We do not use tracking or advertising cookies on the core Result Processing System platform.
+      <section className="w-full bg-surface px-4 py-16 md:px-24 md:py-20">
+        <div className="mx-auto grid w-full max-w-7xl  items-start gap-10 lg:grid-cols-[288px_minmax(0,1fr)]">
+          <aside className="lg:sticky lg:top-20" aria-label="Legal document navigation">
+            <div className="overflow-hidden rounded-xl border border-slate-100 bg-white shadow-[0_7px_24px_rgba(31,53,81,0.04)]">
+              <div className="h-3 bg-[#cfe0ff]" />
+              {legalPolicies.map((policy) => {
+                const isOpen = openPolicyId === policy.id;
+                const isActive = activePolicy.id === policy.id;
+
+                return (
+                  <div key={policy.id} className="border-t border-slate-100 first:border-t-0">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        selectPolicy(policy);
+                        setOpenPolicyId((openId) => (openId === policy.id ? null : policy.id));
+                      }}
+                      className={`flex w-full items-center justify-between px-5 py-4 text-left font-bogoss text-base font-medium transition-colors hover:bg-slate-50 ${isActive ? "text-text-default" : "text-text-muted"}`}
+                      aria-expanded={isOpen}
+                    >
+                      {policy.title}
+                      <ChevronDown
+                        className={`size-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <nav className="px-5 pb-3" aria-label={`${policy.title} sections`}>
+                        {policy.sections.map((section) => (
+                          <button
+                            key={section.title}
+                            type="button"
+                            onClick={() => selectSection(policy, section.title)}
+                            className={`block w-full py-1 text-left font-saans text-sm transition-colors ${isActive && activeSection === section.title ? "font-medium text-text-default underline underline-offset-2" : "text-text-disable hover:text-text-default"}`}
+                          >
+                            {section.title}
+                          </button>
+                        ))}
+                      </nav>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </aside>
+
+          <article id="legal-document" className="min-w-0 scroll-mt-28 pb-4" aria-live="polite">
+            <header className="border-b border-[#cfd6dd] pb-7">
+              <h2 className="heading2 text-4xl leading-none text-text-default md:text-[46px]">
+                {activePolicy.title}
+              </h2>
+              <p className="mt-5 font-saans text-sm leading-5 text-text-muted">
+                Effective date:
+                <br />
+                <span className="font-medium text-text-default">{activePolicy.effectiveDate}</span>
               </p>
-            </section> */}
-          </div>
-        </Reveal>
-      </Container>
-    </main>
+            </header>
+
+            <div className="pt-10">
+              {activePolicy.sections.map((section, index) => (
+                <section
+                  id={`legal-${activePolicy.id}-${section.title}`}
+                  key={section.title}
+                  className="scroll-mt-28 pb-11 last:pb-0"
+                >
+                  <h3 className="heading2 text-2xl leading-tight text-text-default">
+                    {index + 1}. {section.title}
+                  </h3>
+                  <div className="mt-5 space-y-4 font-saans text-sm leading-[1.45] text-text-muted md:text-[15px]">
+                    {section.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </section>
+              ))}
+            </div>
+          </article>
+        </div>
+      </section>
+    </Layout>
   );
 }

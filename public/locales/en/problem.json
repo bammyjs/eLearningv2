@@ -1,0 +1,12 @@
+{
+  "Title": "THE PROBLEM",
+  "Heading": "Running a university shouldn't mean juggling ten different systems.",
+  "Delays": "Admissions Daleys",
+  "DelaysDetails": "Manual tracking of applications and paper reviews, along with disconnected portals, significantly delay admissions teams by weeks in every cycle. This inefficiency hampers the overall process and creates frustration for everyone involved.",
+  "Records": "Scattered Records",
+  "RecordsDetails": "Data is scattered across various spreadsheets, outdated databases, and endless email threads, making it nearly impossible to audit effectively. This disorganization poses serious risks when managing information at scale.",
+  "Operations": "Spreadsheet Operations",
+  "OperationsDetails": "Students are required to log into four to six different portals to complete their semester tasks. This confusion not only frustrates them but also consumes valuable hours for your support team every single day.",
+  "Portal": "Portal Overload",
+  "PortalDetails": "Students and staff have to remember a different portal for every task, making simple actions feel unnecessarily complicated."
+}

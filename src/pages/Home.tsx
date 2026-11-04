@@ -1,30 +1,23 @@
-import { Hero } from '../components/sections/Hero';
-import { SolutionsTeaser } from '../components/sections/SolutionsTeaser';
-import { CaseStudyTeaser } from '../components/sections/CaseStudyTeaser';
-import { ProblemSolution } from '../components/sections/ProblemSolution';
-import { SecurityPerformance } from '../components/sections/SecurityPerformance';
-import { TeamSection } from '../components/sections/TeamSection';
-import { Benefits } from '../components/sections/Benefits';
-import { ServiceOverview } from '../components/sections/ServiceOverview';
-import { CTA } from '../components/sections/CTA';
-import { useEffect } from 'react';
+import { HeroSection } from "../sections/HeroSection";
+import Layout from "../components/layouts/Layout";
+import TheProblem from "../sections/TheProblem";
+import { homeProblemSection } from "../data/problemSections";
+import Testimonial from "../sections/Testimonial";
+import InstitutionNeeds from "../sections/InstitutionNeeds";
+import MissingSystem from "../sections/MissingSystem";
+import RoleSolutions from "../sections/RoleSolutions";
 
 export default function Home() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-    <main className="min-h-screen">
-      <Hero />
-      <SolutionsTeaser />
-      <CaseStudyTeaser />
-      <ProblemSolution />
-      <ServiceOverview />
-      <SecurityPerformance />
-      <Benefits />
-      <TeamSection />
-      <CTA />
-    </main>
+    <Layout>
+      <HeroSection />
+      <TheProblem data={homeProblemSection} />
+      <InstitutionNeeds />
+      <MissingSystem />
+      <RoleSolutions />
+      {/* <BuiltFor /> */}
+      {/* <WhyElearning /> */}
+      <Testimonial />
+    </Layout>
   );
 }
