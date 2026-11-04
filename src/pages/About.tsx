@@ -34,8 +34,8 @@ const images = [
 
 const TITLE = (
   <h1 className="heading text-4xl md:text-6xl max-w-3xl text-[#0B0C0E]">
-    We build the <span className="text-brand-base">operating</span> layer
-    African universities run on.
+    We build the <span className="text-brand-base">operating</span> layer African universities run
+    on.
   </h1>
 );
 const SUBTITLE =

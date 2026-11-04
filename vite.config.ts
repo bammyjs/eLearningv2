@@ -5,7 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 // https://vite.dev/config/
 export default defineConfig({
   staged: {
-    "*": "vp check --fix",
+    // Run once per commit — avoid passing hundreds of paths (Windows CMD length limit).
+    "*": () => "vp check --fix",
   },
   fmt: {},
   lint: {

@@ -5,8 +5,7 @@ import content2 from "../assets/Content.png";
 
 const TITLE = (
   <h1 className="heading text-4xl md:text-6xl max-w-3xl text-[#0B0C0E]">
-    Every stage of the <span className="text-brand-base">academic</span>{" "}
-    journey. One system.
+    Every stage of the <span className="text-brand-base">academic</span> journey. One system.
   </h1>
 );
 const SUBTITLE =
