@@ -9,10 +9,12 @@ import AllRoles from "../sections/AllRoles";
 import SecurityAndTrust from "../sections/SecurityAndTrust";
 import Enabler from "../sections/Enabler";
 import SupportStudent from "../sections/SupportStudent";
+import SecurityAndCompliance from "../sections/SecurityAndCompliance";
 
 const TITLE = (
   <h1 className="heading text-4xl md:text-6xl max-w-3xl text-[#0B0C0E]">
-    Every stage of the <span className="text-brand-base">academic</span> journey. One system.
+    Every stage of the <span className="text-brand-base">academic</span>{" "}
+    journey. One system.
   </h1>
 );
 const SUBTITLE =
@@ -31,10 +33,11 @@ export default function Product() {
       </Hero>
       <InstitutionNeeds />
       <TheProblem data={productProblemSection} />
-      <AllRoles />
+      {/* <AllRoles /> */}
+      <SecurityAndCompliance />
       <SupportStudent />
-      <Enabler />
-      <SecurityAndTrust />
+      {/* <Enabler /> */}
+      {/* <SecurityAndTrust /> */}
     </Layout>
   );
 }

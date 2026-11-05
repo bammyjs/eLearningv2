@@ -1,80 +1,80 @@
-import student from "../assets/student.png";
-import lecturer from "../assets/lecturer.png";
-import coordinator from "../assets/coordinator.png";
-import register from "../assets/register.png";
-import finance from "../assets/finance.png";
-import hostel from "../assets/hostel.png";
-import { ScrollReveal, ScrollRevealGroup } from "../components/ScrollReveal";
-import Card from "../components/Card";
-
-const datas = [
-  {
-    title: "AES-256 Encryption",
-    subtitle: "Data encrypted in transit (TLS 1.3) and at rest on all storage layers.",
-    src: student,
-  },
-  {
-    title: "NDPR Compliant",
-    subtitle: "Designed to meet Nigeria Data Protection Regulation requirements.",
-    src: lecturer,
-  },
-  {
-    title: "Daily Automated Backups",
-    subtitle: "90-day backup retention with point-in-time restore capability.",
-    src: coordinator,
-  },
-  {
-    title: "Role-Based Access",
-    subtitle: "Granular permissions per module, role, and individual user account.",
-    src: register,
-  },
-  {
-    title: "99.9% Uptime SLA",
-    subtitle: "Contractually guaranteed with real-time public status monitoring.",
-    src: finance,
-  },
-  {
-    title: "On-Premise Option",
-    subtitle: "Deploy within your institution's own infrastructure if required.",
-    src: hostel,
-  },
-];
+import SecurityFingerprintVisual from "../components/SecurityFingerprintVisual";
+import { ScrollReveal } from "../components/ScrollReveal";
+import pattern from "../assets/Pattern2.png";
+import { LoadingButton } from "../components/ui/LoadingButton";
+import { Icon } from "../components/Icon";
 
 export default function SecurityAndCompliance() {
   return (
     <section
       id="securityAndCompliance"
-      className="bg-surface py-10 md:py-20 w-full place-items-center "
+      className="px-2 md:px-3 pt-3 z-0   w-full h-auto "
     >
-      <div className="mx-auto mt- w-full items-center    gap-8 max-w-7xl px-4 md:px-24">
-        <ScrollReveal className="flex flex-col justify-center items-start gap-4" preset="soft-blur">
-          <p className="mb-3 rounded-full px-3 py-1 text-xs font-jetbrains font-medium tracking-[.14em] bg-[#06BAD61F]">
-            Security and Compliance
-          </p>
-          <h2 className="heading2 max-w-2xl text-3xl  text-[#0B0C0E] md:text-5xl">
-            Institutional data deserves enterprise-grade protection.
-          </h2>
-          <p className="lead text-lg text-text-muted  font-regular leading-7 max-w-2xl">
-            When your university's data lives in one place, every question has an instant answer.
-            Walk into any senate meeting fully prepared, with real-time reports generated in
-            seconds.
-          </p>
-        </ScrollReveal>
-        <ScrollRevealGroup
-          className="w-full mt-10 grid grid-cols-1 md:grid-cols-3 gap-1.5"
-          staggerChildren={0.08}
-          once
-        >
-          {datas.map((data) => (
-            <Card
-              key={data.title}
-              title={data.title}
-              subtitle={data.subtitle}
-              src={data.src}
-              otherStyles="flex-col"
+      <div className="w-full relative rounded-3xl bg-[#090C10]  flex flex-col gap-6 md:gap-10   items-center h-full z-10 mx-auto  overflow-hidden ">
+        <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 overflow-visible  px-4 py-12 md:rounded-[40px] md:px-12  lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-8 lg:px-16 ">
+          <div
+            className="pointer-events-none absolute inset-0 overflow-hidden rounded-3xl md:rounded-[40px]"
+            aria-hidden
+          >
+            <img
+              src={pattern}
+              alt=""
+              className="h-full w-full object-cover opacity-[0.35]"
             />
-          ))}
-        </ScrollRevealGroup>
+          </div>
+
+          <ScrollReveal
+            className="relative z-10 flex flex-col items-start gap-5"
+            preset="soft-blur"
+            once
+          >
+            <p className="mb-1 flex items-center gap-2 font-jetbrains text-xs font-medium tracking-[0.14em] text-[#06BAD6]">
+              <svg
+                width="6"
+                height="8"
+                viewBox="0 0 6 8"
+                fill="none"
+                aria-hidden
+              >
+                <rect x="4" y="2" width="2" height="2" fill="#06BAD6" />
+                <rect y="6" width="2" height="2" fill="#06BAD6" />
+                <rect x="4" y="6" width="2" height="2" fill="#06BAD6" />
+              </svg>
+              DATA SECURITY AND COMPLIANCE
+            </p>
+            <h2 className="heading2 max-w-xl text-3xl text-white md:max-w-2xl md:text-5xl md:leading-[1.08]">
+              Security isn&apos;t just a feature. It&apos;s the foundation of
+              everything.
+            </h2>
+            <p className="max-w-xl text-base font-normal leading-7 text-[#9AA0A6] md:max-w-2xl md:text-lg">
+              Security is the cornerstone of our service, not merely an add-on.
+              Your data remains exclusively yours, with every response clearly
+              traced back to its original source. Our infrastructure, proudly
+              based in Nigeria, ensures that your information is securely stored
+              separately, providing robust protection and transparency from the
+              very beginning of our partnership.
+            </p>
+            <LoadingButton
+              type="button"
+              otherStyles="!mt-1 !border-0 !bg-white !px-5 !py-3 !text-sm !text-[#090C10] hover:!bg-white/90"
+            >
+              Contact Sales
+              <Icon
+                name="right"
+                variant="cute-regular"
+                sizeClass="text-base"
+                className="text-[#090C10]"
+              />
+            </LoadingButton>
+          </ScrollReveal>
+          <ScrollReveal
+            className="relative z-10 flex w-full min-w-0 justify-center overflow-visible lg:justify-end"
+            preset="soft-blur"
+            once
+          >
+            <SecurityFingerprintVisual />
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );
